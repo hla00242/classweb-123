@@ -1,5 +1,5 @@
 /**
- * Unified Search Index & Command Palette Engine (Ctrl + K)
+ * Unified Search Index & Command Palette Engine (Ctrl + K / Cmd + K / Slash / Click)
  * Instant spotlight search across essays, coursework, projects, blog, and quick actions.
  */
 
@@ -129,7 +129,7 @@ function initCommandPalette() {
                 <div class="command-palette-input-wrap">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="cp-search-icon"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                     <input type="text" id="cp-search-input" class="command-palette-input" placeholder="Search essays, projects, coursework, actions... (ESC to close)" autocomplete="off" spellcheck="false">
-                    <kbd class="cp-kbd">ESC</kbd>
+                    <button id="cp-close-btn" class="cp-kbd" style="cursor: pointer; border: none;" title="Close">ESC</button>
                 </div>
                 <div id="cp-results-list" class="command-palette-results">
                     <!-- Results dynamically injected -->
@@ -147,6 +147,7 @@ function initCommandPalette() {
     const input = document.getElementById('cp-search-input');
     const resultsContainer = document.getElementById('cp-results-list');
     const backdrop = document.getElementById('cp-backdrop');
+    const closeBtn = document.getElementById('cp-close-btn');
 
     let activeIndex = 0;
     let currentResults = [];
@@ -155,7 +156,10 @@ function initCommandPalette() {
         modal.classList.add('open');
         input.value = '';
         renderResults('');
-        setTimeout(() => input.focus(), 50);
+        setTimeout(() => {
+            input.focus();
+            input.select();
+        }, 30);
     }
 
     function closePalette() {
@@ -163,9 +167,9 @@ function initCommandPalette() {
     }
 
     function renderResults(query) {
-        const q = query.trim().toLowerCase();
+        const q = (query || '').trim().toLowerCase();
         if (!q) {
-            currentResults = siteSearchIndex.slice(0, 7); // Show top default options
+            currentResults = siteSearchIndex.slice(0, 8); // Show default options
         } else {
             currentResults = siteSearchIndex.filter(item => {
                 const text = `${item.title} ${item.category} ${item.snippet} ${item.keywords}`.toLowerCase();
@@ -184,7 +188,6 @@ function initCommandPalette() {
         }
 
         resultsContainer.innerHTML = currentResults.map((item, index) => {
-            const isAction = item.category === 'Action';
             const badgeClass = item.category.toLowerCase();
             return `
                 <div class="cp-result-item ${index === 0 ? 'selected' : ''}" data-index="${index}">
@@ -221,13 +224,17 @@ function initCommandPalette() {
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('site-theme', next);
         } else if (item.url) {
-            // Adjust relative url if we're in a subfolder like int1050
-            const inSubfolder = window.location.pathname.includes('/int1050/');
+            // Adjust relative url if we're inside a subdirectory like int1050/
+            const currentPath = window.location.pathname.replace(/\\/g, '/');
+            const inSubfolder = currentPath.includes('/int1050/') || currentPath.endsWith('/int1050') || currentPath.includes('/int1050');
+            
             let targetUrl = item.url;
-            if (inSubfolder && !targetUrl.startsWith('int1050/') && !targetUrl.startsWith('http')) {
-                targetUrl = '../' + targetUrl;
-            } else if (inSubfolder && targetUrl.startsWith('int1050/')) {
-                targetUrl = targetUrl.replace('int1050/', '');
+            if (inSubfolder) {
+                if (targetUrl.startsWith('int1050/')) {
+                    targetUrl = targetUrl.replace('int1050/', '');
+                } else if (!targetUrl.startsWith('http') && !targetUrl.startsWith('../')) {
+                    targetUrl = '../' + targetUrl;
+                }
             }
             window.location.href = targetUrl;
         }
@@ -250,7 +257,7 @@ function initCommandPalette() {
         renderResults(e.target.value);
     });
 
-    // Keyboard Navigation
+    // Keyboard Navigation inside input
     input.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowDown') {
             e.preventDefault();
@@ -268,41 +275,60 @@ function initCommandPalette() {
             e.preventDefault();
             selectItem(activeIndex);
         } else if (e.key === 'Escape') {
+            e.preventDefault();
             closePalette();
         }
     });
 
     backdrop.addEventListener('click', closePalette);
+    if (closeBtn) closeBtn.addEventListener('click', closePalette);
 
-    // Global Keyboard Shortcut: Ctrl+K / Cmd+K / Slash (/)
-    window.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+    // Global Key Listener on document with CAPTURING phase
+    document.addEventListener('keydown', (e) => {
+        const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+        const isShortcut = (isMac ? e.metaKey : e.ctrlKey) && (e.key === 'k' || e.key === 'K');
+        
+        // Also support '/' when not focused on an input/textarea
+        const isSlash = e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName);
+
+        if (isShortcut || isSlash) {
             e.preventDefault();
+            e.stopPropagation();
             if (modal.classList.contains('open')) {
                 closePalette();
             } else {
                 openPalette();
             }
         } else if (e.key === 'Escape' && modal.classList.contains('open')) {
+            e.preventDefault();
             closePalette();
         }
-    });
+    }, true);
 
-    // Attach to any search button triggers
+    // Attach to any search button triggers on page
     document.querySelectorAll('.search-trigger-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             openPalette();
         });
     });
+
+    // Expose helper globally for direct invocation if needed
+    window.openCommandPalette = openPalette;
+    window.closeCommandPalette = closePalette;
 }
 
 function escapeHtml(str) {
+    if (!str) return '';
     return str.replace(/[&<>'"]/g, 
         tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
     );
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+// Ensure execution even if DOMContentLoaded already fired
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCommandPalette);
+} else {
     initCommandPalette();
-});
+}
