@@ -1,0 +1,254 @@
+/* ==========================================================================
+   Academic & Technical Resume (CV) Stylesheet - Vanilla CSS
+   Optimized for screen readability, dark mode, and pristine PDF printing
+   ========================================================================== */
+
+.resume-wrapper {
+    max-width: 900px;
+    margin: 2.5rem auto 5rem;
+    padding: 0 1.5rem;
+}
+
+/* Action Bar */
+.resume-action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.75rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.resume-action-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Resume Document Sheet */
+.resume-sheet {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 3.5rem;
+    box-shadow: var(--shadow-xl);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: relative;
+}
+
+/* Resume Header */
+.resume-header {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.resume-name {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+}
+
+.resume-role {
+    font-size: 1.25rem;
+    color: var(--brand-primary);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.resume-contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.resume-contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.resume-contact-item svg {
+    width: 16px;
+    height: 16px;
+    color: var(--brand-primary);
+}
+
+/* Resume Section */
+.resume-section {
+    margin-bottom: 2.5rem;
+}
+
+.resume-section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.resume-section-title svg {
+    width: 20px;
+    height: 20px;
+    color: var(--brand-primary);
+}
+
+/* Resume Entries (Education, Projects, Papers) */
+.resume-entry {
+    margin-bottom: 1.75rem;
+}
+
+.resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.resume-entry-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.resume-entry-subtitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--brand-primary);
+}
+
+.resume-entry-date {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.resume-entry-desc {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-top: 0.4rem;
+}
+
+.resume-bullets {
+    list-style: none;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.resume-bullets li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.resume-bullets li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--brand-primary);
+    font-weight: 800;
+}
+
+/* Skills Category Layout */
+.resume-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.resume-skill-cat {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+}
+
+.resume-skill-cat-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.resume-skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+/* Print Optimization */
+@media print {
+    .navbar, .resume-action-bar, .footer, .toast-notice {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .resume-wrapper {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .resume-sheet {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0.5in !important;
+        background: #ffffff !important;
+    }
+
+    .resume-name {
+        color: #000000 !important;
+    }
+
+    .resume-role, .resume-entry-subtitle {
+        color: #333333 !important;
+    }
+
+    .resume-bullets li::before {
+        color: #000000 !important;
+    }
+
+    .resume-skill-cat {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+    }
+
+    .tag {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #000000 !important;
+    }
+}

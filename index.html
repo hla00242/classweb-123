@@ -30,25 +30,34 @@
                 <ul class="nav-links">
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#coursework" class="nav-link">Coursework</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#blog" class="nav-link">Blog</a></li>
+                    <li><a href="resume.html" class="nav-link">Resume</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
 
-            <!-- Actions (Theme Toggle & Mobile Menu) -->
+            <!-- Actions (Search Button, Theme Toggle & Mobile Menu) -->
             <div class="nav-actions">
+                <!-- Command Palette Search Button (Ctrl+K) -->
+                <button class="theme-toggle-btn search-trigger-btn" aria-label="Search site (Ctrl+K)" title="Spotlight Search (Ctrl + K)">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </button>
+
+                <!-- Theme Toggle Button -->
                 <button class="theme-toggle-btn" aria-label="Toggle dark and light theme" title="Toggle Theme">
-                    <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                     </svg>
-                    <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                     </svg>
                 </button>
 
+                <!-- Mobile Menu Button -->
                 <button class="mobile-menu-btn" aria-label="Open mobile navigation menu">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
@@ -60,8 +69,10 @@
             <ul class="mobile-nav-links">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#coursework" class="nav-link">Coursework</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="resume.html" class="nav-link">Resume (CV)</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -82,14 +93,16 @@
                         Hi, I'm <span class="gradient-text">Hesten A.</span>
                     </h1>
                     <p class="hero-bio">
-                        I am a passionate student exploring web development, computer science, and critical social inquiry. This site is my personal digital garden—a space to showcase my software projects, publish academic response papers, and document my learning journey.
+                        I am an undergraduate student exploring front-end web development, clean software architectures, and critical sociological inquiry. This platform is my personal digital garden—showcasing projects, publishing weekly academic response papers, and archiving my educational journey.
                     </p>
                     <div class="hero-actions">
                         <a href="#coursework" class="btn btn-primary">
                             Explore Coursework
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </a>
-                        <a href="#projects" class="btn btn-secondary">View Projects</a>
+                        <a href="resume.html" class="btn btn-secondary">
+                            View Resume (CV)
+                        </a>
                         <a href="#contact" class="btn btn-outline">Get in Touch</a>
                     </div>
                     <div class="hero-stats">
@@ -102,8 +115,8 @@
                             <span class="stat-label">Zero Framework Bloat</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Responsive & Fast</span>
+                            <span class="stat-number">Ctrl + K</span>
+                            <span class="stat-label">Spotlight Search</span>
                         </div>
                     </div>
                 </div>
@@ -141,13 +154,18 @@
                 <div class="course-featured-card">
                     <div class="course-header-row">
                         <div>
-                            <span class="course-code-badge">INT-1050</span>
+                            <span class="course-code-badge">INT-1050 &bull; Vermont State Colleges</span>
                             <h3 class="course-title">Dimensions of Self and Society</h3>
                         </div>
-                        <a href="int1050/index.html" class="btn btn-primary btn-sm">
-                            Open Course Portal
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </a>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <a href="int1050/reader.html?paper=week1.md" class="btn btn-secondary btn-sm" title="Launch Universal Markdown Reader">
+                                Universal Markdown Reader
+                            </a>
+                            <a href="int1050/index.html" class="btn btn-primary btn-sm">
+                                Open Course Portal
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
+                        </div>
                     </div>
                     <p class="course-desc">
                         An interdisciplinary seminar exploring human identity, social constructs, racial prejudice, and civic engagement. This portal hosts my weekly analytical response papers and reading syntheses.
@@ -155,7 +173,7 @@
 
                     <!-- Preview Papers in Course -->
                     <div class="course-papers-preview">
-                        <a href="int1050/week1.html" class="paper-mini-card">
+                        <a href="int1050/reader.html?paper=week1.md" class="paper-mini-card">
                             <div>
                                 <span class="tag" style="background: var(--status-success-bg); color: var(--status-success); border-color: rgba(16, 185, 129, 0.2); margin-bottom: 0.5rem; display: inline-block;">Completed</span>
                                 <h4 class="paper-mini-title">Week 1: "So, What are You, Anyway?"</h4>
@@ -183,15 +201,40 @@
                         </div>
                     </div>
 
-                    <div style="text-align: right;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">💡 <em>Tip: New weekly papers in .md format can be read dynamically in the reader!</em></span>
                         <a href="int1050/index.html" class="card-link">View all assignments in INT-1050 &rarr;</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Skills & Tech Matrix Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Core Competencies</span>
+                    <h2 class="section-title">Skills & Tech Stack</h2>
+                    <p class="section-subtitle">Front-end web development capabilities paired with rigorous academic inquiry tools.</p>
+                </div>
+
+                <!-- Skills Filter Bar -->
+                <div class="filter-bar">
+                    <button class="filter-btn skills-filter-btn active" data-skill-filter="all">All Disciplines</button>
+                    <button class="filter-btn skills-filter-btn" data-skill-filter="dev">Front-End & Code</button>
+                    <button class="filter-btn skills-filter-btn" data-skill-filter="academic">Academic Research</button>
+                    <button class="filter-btn skills-filter-btn" data-skill-filter="tools">Developer Tools</button>
+                </div>
+
+                <!-- Skills Grid (Rendered via js/app.js) -->
+                <div id="skills-grid" class="skills-grid">
+                    <!-- Dynamic skill cards injected via JavaScript -->
+                </div>
+            </div>
+        </section>
+
         <!-- Projects Section -->
-        <section id="projects" class="section">
+        <section id="projects" class="section" style="background: var(--bg-tertiary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Showcase</span>
@@ -207,7 +250,7 @@
         </section>
 
         <!-- Blog Section -->
-        <section id="blog" class="section" style="background: var(--bg-tertiary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <section id="blog" class="section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Writings & Thoughts</span>
@@ -217,10 +260,10 @@
 
                 <!-- Filter Bar -->
                 <div class="filter-bar">
-                    <button class="filter-btn active" data-filter="all">All Articles</button>
-                    <button class="filter-btn" data-filter="dev">Web Dev</button>
-                    <button class="filter-btn" data-filter="academic">Academic</button>
-                    <button class="filter-btn" data-filter="design">UI/UX Design</button>
+                    <button class="filter-btn blog-filter-btn active" data-filter="all">All Articles</button>
+                    <button class="filter-btn blog-filter-btn" data-filter="dev">Web Dev</button>
+                    <button class="filter-btn blog-filter-btn" data-filter="academic">Academic</button>
+                    <button class="filter-btn blog-filter-btn" data-filter="design">UI/UX Design</button>
                 </div>
 
                 <!-- Blog Grid (Rendered via js/app.js) -->
@@ -231,7 +274,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section">
+        <section id="contact" class="section" style="background: var(--bg-tertiary); border-top: 1px solid var(--border-color);">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Get In Touch</span>
@@ -325,6 +368,9 @@
                 </div>
 
                 <div class="footer-socials">
+                    <a href="resume.html" class="social-link" aria-label="Resume / CV" title="Resume / CV">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </a>
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub Profile" title="GitHub">
                         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.802 8.205 11.385.6.11.82-.257.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.043-1.61-4.043-1.61-.546-1.385-1.332-1.755-1.332-1.755-1.09-.745.08-.73.08-.73 1.205.085 1.838 1.238 1.838 1.238 1.07 1.832 2.809 1.303 3.493.996.108-.775.42-1.303.762-1.603-2.665-.3-5.466-1.332-5.466-5.942 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.52.14-3.178 0 0 1.005-.322 3.3-.997.957-.265 1.96-.398 2.96-.398s2.003.133 2.96.398c2.295.675 3.3 1 3.3 1 .68 1.658.275 2.875.14 3.178.77.84 1.235 1.91 1.235 3.22 0 4.62-2.802 5.637-5.475 5.937.42.36.81 1.096.81 2.21 0 1.595-.015 2.885-.015 3.275 0 .32.215.69.82.57C20.562 21.802 24 17.302 24 12c0-6.627-5.373-12-12-12z"></path></svg>
                     </a>
@@ -344,7 +390,8 @@
         </div>
     </footer>
 
-    <!-- Application Script -->
+    <!-- Application & Search Scripts -->
     <script src="js/app.js"></script>
+    <script src="js/search-index.js"></script>
 </body>
 </html>

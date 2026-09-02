@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dynamic Academic Markdown Reader for INT-1050 Dimensions of Self and Society response papers and research essays.">
+    <meta name="author" content="Hesten A. (Sheldon)">
+    <title>Academic Paper Reader | INT-1050 Dimensions of Self & Society</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/reader.css">
+</head>
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress" class="reading-progress-bar" role="progressbar" aria-label="Reading progress"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-inner">
+            <a href="../index.html" class="brand-logo" aria-label="Return to Portfolio Home">
+                <div class="brand-badge">HA</div>
+                <span>Hesten<span class="gradient-text">.dev</span></span>
+            </a>
+
+            <nav aria-label="Reader Navigation">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="nav-link">&larr; Portfolio</a></li>
+                    <li><a href="index.html" class="nav-link">&larr; INT-1050 Hub</a></li>
+                    <li><a href="#paper-content" class="nav-link active">Essay</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Search Button Trigger (Ctrl+K) -->
+                <button class="theme-toggle-btn search-trigger-btn" aria-label="Search site (Ctrl+K)" title="Spotlight Search (Ctrl + K)">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </button>
+
+                <!-- Theme Switcher -->
+                <button class="theme-toggle-btn" aria-label="Toggle dark and light theme" title="Toggle Theme">
+                    <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Reader Wrapper -->
+    <main class="reader-container">
+
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="index.html">INT-1050</a>
+            <span class="breadcrumb-separator">/</span>
+            <span id="breadcrumb-paper-title">Response Paper</span>
+        </nav>
+
+        <!-- Academic Metadata Header (Dynamically Populated) -->
+        <header id="academic-header" class="academic-header">
+            <span id="paper-badge" class="academic-header-tag">INT-1050 &bull; Response Paper</span>
+            <h1 id="paper-title" class="academic-title">Loading Essay...</h1>
+            
+            <div class="academic-meta-grid">
+                <div class="meta-field">
+                    <span class="meta-label">Author</span>
+                    <span class="meta-value" id="paper-author">Hesten A. (Sheldon)</span>
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">Course</span>
+                    <span class="meta-value" id="paper-course">Dimensions of Self & Society</span>
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">Date Completed</span>
+                    <span class="meta-value" id="paper-date">&mdash;</span>
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">Reading Time</span>
+                    <span class="meta-value" id="estimated-read-time">Calculating...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Reading Customization Toolbar -->
+        <section class="reader-toolbar" aria-label="Reading Options">
+            <div class="toolbar-group">
+                <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Text Size:</span>
+                <button class="toolbar-btn" data-font-size="sm" title="Smaller Font">A-</button>
+                <button class="toolbar-btn active" data-font-size="md" title="Default Font">A</button>
+                <button class="toolbar-btn" data-font-size="lg" title="Larger Font">A+</button>
+            </div>
+
+            <div class="toolbar-group">
+                <button id="font-family-toggle" class="toolbar-btn" title="Toggle Serif / Sans Font">
+                    Sans Mode
+                </button>
+                <button id="print-paper-btn" class="toolbar-btn" title="Print or Save as PDF">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    Print / PDF
+                </button>
+            </div>
+        </section>
+
+        <!-- Dynamic Table of Contents (If headings exist) -->
+        <nav id="reader-toc-container" class="takeaways-box" style="display: none; margin-bottom: 2.5rem; background: var(--bg-card);">
+            <h3 class="takeaways-title" style="font-size: 1.1rem; margin-bottom: 0.75rem;">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+                Table of Contents
+            </h3>
+            <ul id="reader-toc-list" class="takeaways-list" style="margin-left: 0.5rem;">
+                <!-- Injected via JavaScript -->
+            </ul>
+        </nav>
+
+        <!-- Main Dynamic Paper Content -->
+        <article id="paper-content" class="paper-content">
+            <div style="text-align: center; padding: 3rem 0; color: var(--text-muted);">
+                <p>Loading paper from source file...</p>
+            </div>
+        </article>
+
+        <!-- Citation Helper Card -->
+        <section class="citation-box" id="citation-box">
+            <div class="citation-header">
+                <span class="citation-title">Academic Citation (MLA Format)</span>
+                <button id="copy-citation-btn" class="btn btn-secondary btn-sm">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                    Copy Citation
+                </button>
+            </div>
+            <div id="citation-text" class="citation-text">
+                Sheldon, Hesten A. "Academic Response Paper." INT-1050: Dimensions of Self and Society, Vermont State Colleges, 2025.
+            </div>
+        </section>
+
+        <!-- Reader Navigation Footer -->
+        <footer class="reader-nav-footer">
+            <div class="paper-nav-card">
+                <span class="paper-nav-label">Course Portal</span>
+                <a href="index.html" class="paper-nav-link">
+                    &larr; Back to INT-1050 Hub
+                </a>
+            </div>
+
+            <div class="paper-nav-card" style="text-align: right;">
+                <span class="paper-nav-label">Main Site</span>
+                <a href="../index.html" class="paper-nav-link">
+                    Return to Portfolio &rarr;
+                </a>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="brand-logo">
+                    <div class="brand-badge">HA</div>
+                    <span>Hesten<span class="gradient-text">.dev</span></span>
+                </div>
+
+                <div class="footer-socials">
+                    <a href="../index.html" class="btn btn-secondary btn-sm">&larr; Return to Portfolio</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hesten A. (Sheldon) &bull; Dynamic Markdown Reader</p>
+                <p>Universal Drop-In Essay Engine</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Element -->
+    <div id="toast-notice" class="toast-notice"></div>
+
+    <!-- Scripts -->
+    <script src="../js/markdown-engine.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/search-index.js"></script>
+    <script src="../js/reader.js"></script>
+
+    <!-- Dynamic Loader Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const paperFile = urlParams.get('paper') || 'week1.md';
+
+            try {
+                const response = await fetch(paperFile);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${paperFile} (Status: ${response.status})`);
+                }
+                const rawMarkdown = await response.text();
+                const parsed = MarkdownEngine.parse(rawMarkdown);
+
+                // Update Metadata Header
+                document.getElementById('paper-title').textContent = parsed.meta.title || 'Response Paper';
+                document.title = `${parsed.meta.title} | INT-1050 Reader`;
+                document.getElementById('breadcrumb-paper-title').textContent = parsed.meta.title;
+                if (parsed.meta.author) document.getElementById('paper-author').textContent = parsed.meta.author;
+                if (parsed.meta.course) document.getElementById('paper-course').textContent = parsed.meta.course;
+                if (parsed.meta.date) document.getElementById('paper-date').textContent = parsed.meta.date;
+                if (parsed.meta.assignment) document.getElementById('paper-badge').textContent = `INT-1050 • ${parsed.meta.assignment}`;
+
+                // Update Citation
+                const citeYear = parsed.meta.date ? (parsed.meta.date.match(/\d{4}/) ? parsed.meta.date.match(/\d{4}/)[0] : '2025') : '2025';
+                document.getElementById('citation-text').textContent = 
+                    `Sheldon, Hesten A. "${parsed.meta.title}." INT-1050: Dimensions of Self and Society, Vermont State Colleges, ${parsed.meta.date || citeYear}.`;
+
+                // Update TOC if headers exist
+                const tocContainer = document.getElementById('reader-toc-container');
+                const tocList = document.getElementById('reader-toc-list');
+                if (parsed.toc && parsed.toc.length > 0) {
+                    tocList.innerHTML = parsed.toc.map(item => `
+                        <li><a href="#${item.id}" style="color: var(--brand-primary); font-weight: 600;">${item.text}</a></li>
+                    `).join('');
+                    tocContainer.style.display = 'block';
+                }
+
+                // Render Content Body
+                const paperContentEl = document.getElementById('paper-content');
+                paperContentEl.innerHTML = parsed.html;
+
+                // Recalculate Reading Time & Words
+                const words = rawMarkdown.trim().split(/\s+/).length;
+                const minutes = Math.max(1, Math.ceil(words / 200));
+                document.getElementById('estimated-read-time').textContent = `${minutes} min read (${words} words)`;
+
+            } catch (err) {
+                console.error('Error rendering markdown paper:', err);
+                document.getElementById('paper-content').innerHTML = `
+                    <div class="takeaways-box" style="border-color: #ef4444;">
+                        <h3 style="color: #ef4444; font-size: 1.2rem; margin-bottom: 0.5rem;">Could not load paper source</h3>
+                        <p style="color: var(--text-secondary);">Unable to fetch markdown file: <code>${paperFile}</code>.</p>
+                        <p style="margin-top: 1rem;"><a href="week1.html" class="btn btn-primary btn-sm">View Static Week 1 Paper &rarr;</a></p>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
