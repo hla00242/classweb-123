@@ -23,28 +23,28 @@ const siteSearchIndex = [
         title: "HIS-1211: U.S. History to 1877",
         category: "Coursework",
         snippet: "Early American history from pre-Columbian civilizations to Reconstruction. Foundation for History B.A.",
-        url: "courses/view.php?code=his1211",
+        url: "his1211/index.php",
         keywords: "his1211 his-1211 history american revolution constitution civil war reconstruction ccv vtsu"
     },
     {
         title: "EDU-1030: Intro to Special & Secondary Education",
         category: "Coursework",
         snippet: "Pedagogical foundations, IDEA, 504 plans, IEP accommodations, and Universal Design for Learning (UDL).",
-        url: "courses/view.php?code=edu1030",
+        url: "edu1030/index.php",
         keywords: "edu1030 edu-1030 education sped special education secondary teaching udl iep idea pedagogy"
     },
     {
         title: "CIS-1151: Websites & Web Application Design",
         category: "Coursework",
         snippet: "Semantic HTML5, pure Vanilla CSS design systems, WCAG 2.1 accessibility, and JavaScript architectures.",
-        url: "courses/view.php?code=cis1151",
+        url: "cis1151/index.php",
         keywords: "cis1151 cis-1151 websites web applications css javascript accessibility html5 design system"
     },
     {
         title: "ENG-1061: English Composition & Critical Inquiry",
         category: "Coursework",
         snippet: "Advanced academic writing, rhetorical analysis, argumentation, and empirical research methods.",
-        url: "courses/view.php?code=eng1061",
+        url: "eng1061/index.php",
         keywords: "eng1061 eng-1061 english composition writing essays rhetorical critical inquiry research"
     },
     {
