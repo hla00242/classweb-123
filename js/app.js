@@ -381,7 +381,7 @@ function initContactForm() {
         const data = Object.fromEntries(formData.entries());
         
         // Ensure formsubmit AJAX endpoint format
-        let endpoint = form.getAttribute('action') || 'https://formsubmit.co/ajax/student@vsc.edu';
+        let endpoint = form.getAttribute('action') || 'https://formsubmit.co/ajax/hla00242@vsc.edu';
         if (endpoint.includes('formsubmit.co/') && !endpoint.includes('/ajax/')) {
             endpoint = endpoint.replace('formsubmit.co/', 'formsubmit.co/ajax/');
         }

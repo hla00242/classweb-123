@@ -116,7 +116,7 @@ include __DIR__ . '/../includes/header.php';
             </button>
         </div>
         <div id="citation-text" class="citation-text">
-            Sheldon, Hesten A. "<?= e($defaultTitle) ?>." INT-1050: Dimensions of Self and Society, Vermont State Colleges, 2025.
+            Sheldon, Hesten A. "<?= e($defaultTitle) ?>." INT-1050: Dimensions of Self and Society, Community College of Vermont / Vermont State Colleges, 2025.
         </div>
     </section>
 
@@ -165,7 +165,7 @@ include __DIR__ . '/../includes/header.php';
             // Update Citation
             const citeYear = parsed.meta.date ? (parsed.meta.date.match(/\d{4}/) ? parsed.meta.date.match(/\d{4}/)[0] : '2025') : '2025';
             document.getElementById('citation-text').textContent = 
-                `Sheldon, Hesten A. "${parsed.meta.title}." INT-1050: Dimensions of Self and Society, Vermont State Colleges, ${parsed.meta.date || citeYear}.`;
+                `Sheldon, Hesten A. "${parsed.meta.title}." INT-1050: Dimensions of Self and Society, Community College of Vermont / Vermont State Colleges, ${parsed.meta.date || citeYear}.`;
 
             // Update TOC if headers exist
             const tocContainer = document.getElementById('reader-toc-container');

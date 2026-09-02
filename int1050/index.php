@@ -32,7 +32,7 @@ include __DIR__ . '/../includes/header.php';
     <section class="course-featured-card" style="margin-bottom: 3.5rem;">
         <div class="course-header-row">
             <div>
-                <span class="course-code-badge">INT-1050 &bull; Vermont State Colleges</span>
+                <span class="course-code-badge">INT-1050 &bull; CCV / Vermont State Colleges</span>
                 <h1 class="course-title" style="font-size: 2.5rem; margin-top: 0.75rem;">
                     Dimensions of Self and Society
                 </h1>

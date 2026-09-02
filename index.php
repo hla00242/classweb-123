@@ -5,8 +5,8 @@
  */
 require_once __DIR__ . '/includes/functions.php';
 
-$pageTitle = 'Hesten A. (Sheldon) | Student Portfolio & Coursework Hub';
-$metaDescription = 'Undergraduate Student Portfolio for Hesten A. at Vermont State Colleges. Featuring INT-1050 Dimensions of Self & Society essays, web engineering projects, and technical writings.';
+$pageTitle = 'Hesten A. (Sheldon) | Student Portfolio & Academic Hub';
+$metaDescription = 'Undergraduate Student Portfolio for Hesten A. (Sheldon) — Liberal Studies at CCV / VSC, transferring to VTSU for History B.A. & Secondary Education with SPED.';
 $activePage = 'home';
 $rootPath = '';
 
@@ -22,13 +22,13 @@ include __DIR__ . '/includes/header.php';
             <div class="hero-content">
                 <div class="hero-pill">
                     <span class="hero-pill-dot"></span>
-                    Student & Developer @ Vermont State Colleges
+                    CCV (Liberal Studies) &rarr; VTSU (History B.A. &amp; Sec Ed / SPED)
                 </div>
                 <h1 class="hero-title">
                     Hi, I'm <span class="gradient-text">Hesten A.</span>
                 </h1>
                 <p class="hero-bio">
-                    I am an undergraduate student exploring front-end web development, clean software architectures, and critical sociological inquiry. This platform is my personal digital garden—showcasing projects, publishing weekly academic response papers, and archiving my educational journey.
+                    I am an undergraduate student currently studying Liberal Studies at the Community College of Vermont (CCV) within the Vermont State Colleges system, on track to transfer to Vermont State University (VTSU) for a B.A. in History and Secondary Education with Special Education (SPED). Alongside education and history, I build clean, accessible web platforms and digital learning tools.
                 </p>
                 <div class="hero-actions">
                     <a href="#coursework" class="btn btn-primary">
@@ -241,7 +241,7 @@ include __DIR__ . '/includes/header.php';
                         </div>
                         <div>
                             <div class="contact-item-title">Institution</div>
-                            <div class="contact-item-val">Vermont State Colleges</div>
+                            <div class="contact-item-val">CCV / Vermont State Colleges (VSC)</div>
                         </div>
                     </div>
 
@@ -251,14 +251,14 @@ include __DIR__ . '/includes/header.php';
                         </div>
                         <div>
                             <div class="contact-item-title">Email</div>
-                            <div class="contact-item-val">student@vsc.edu</div>
+                            <div class="contact-item-val"><a href="mailto:hla00242@vsc.edu" style="color: inherit; text-decoration: none;">hla00242@vsc.edu</a></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Contact Form Card (FormSubmit.co Integrated) -->
                 <div class="contact-form-card">
-                    <form id="contact-form" action="https://formsubmit.co/ajax/student@vsc.edu" method="POST">
+                    <form id="contact-form" action="https://formsubmit.co/ajax/hla00242@vsc.edu" method="POST">
                         <!-- FormSubmit Configuration Fields -->
                         <input type="hidden" name="_subject" value="New Message from Hesten.dev Portfolio">
                         <input type="hidden" name="_template" value="table">

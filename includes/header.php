@@ -5,7 +5,7 @@
  */
 if (!isset($rootPath)) $rootPath = '';
 if (!isset($pageTitle)) $pageTitle = 'Hesten A. | Student Portfolio & Academic Hub';
-if (!isset($metaDescription)) $metaDescription = 'Academic Portfolio & Coursework Hub for Hesten A. (Sheldon) at Vermont State Colleges. Showcasing software projects, INT-1050 response papers, and technical writings.';
+if (!isset($metaDescription)) $metaDescription = 'Academic Portfolio & Coursework Hub for Hesten A. (Sheldon) — Liberal Studies at CCV / VSC, transferring to VTSU for History & Secondary Education with SPED.';
 if (!isset($activePage)) $activePage = '';
 ?>
 <!DOCTYPE html>
@@ -46,12 +46,23 @@ if (!isset($activePage)) $activePage = '';
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Hesten A. (Sheldon)",
-      "affiliation": {
-        "@type": "CollegeOrUniversity",
-        "name": "Vermont State Colleges"
-      },
-      "jobTitle": "Undergraduate Student & Web Developer",
-      "knowsAbout": ["Web Development", "Vanilla CSS", "JavaScript", "Dimensions of Self and Society", "Sociological Inquiry"]
+      "email": "hla00242@vsc.edu",
+      "affiliation": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Community College of Vermont"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Vermont State Colleges"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Vermont State University"
+        }
+      ],
+      "jobTitle": "Undergraduate Student & Future Educator",
+      "knowsAbout": ["Liberal Studies", "History Education", "Special Education (SPED)", "Secondary Education", "Web Development", "Vanilla CSS", "JavaScript", "Sociological Inquiry"]
     }
     </script>
 </head>

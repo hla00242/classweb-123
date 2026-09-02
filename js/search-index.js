@@ -91,9 +91,9 @@ const siteSearchIndex = [
     {
         title: "View Academic & Tech Resume (CV)",
         category: "Resume",
-        snippet: "View and print Hesten A.'s education, technical skills, coursework, and projects.",
+        snippet: "View and print Hesten A.'s education (CCV / VTSU), skills, history & SPED coursework, and projects.",
         url: "resume.php",
-        keywords: "resume cv education skills experience jobs hire vermont state colleges"
+        keywords: "resume cv education skills experience jobs hire vermont state colleges ccv vtsu liberal studies history secondary education sped special education"
     },
     {
         title: "Toggle Dark / Light Theme",
@@ -105,9 +105,9 @@ const siteSearchIndex = [
     {
         title: "Get In Touch / Contact Form",
         category: "Action",
-        snippet: "Send a direct inquiry or message to Hesten A. via FormSubmit.",
+        snippet: "Send a direct inquiry or message to Hesten A. (hla00242@vsc.edu) via FormSubmit.",
         url: "index.php#contact",
-        keywords: "contact message email reach out connect hire formsubmit"
+        keywords: "contact message email reach out connect hire formsubmit hla00242 hla00242@vsc.edu"
     }
 ];
 

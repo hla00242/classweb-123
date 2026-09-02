@@ -6,7 +6,7 @@
 require_once __DIR__ . '/includes/functions.php';
 
 $pageTitle = 'Hesten A. (Sheldon) | Academic & Tech Resume (CV)';
-$metaDescription = 'Curriculum Vitae for Hesten A. (Sheldon) - Undergraduate Student at Vermont State Colleges specializing in front-end web development, pure vanilla CSS architectures, and sociological research.';
+$metaDescription = 'Curriculum Vitae for Hesten A. (Sheldon) - Liberal Studies student at CCV / VSC transferring to VTSU for History B.A. & Secondary Education with SPED, with focus on front-end web development and digital humanities.';
 $activePage = 'resume';
 $rootPath = '';
 $extraStyles = ['css/resume.css'];
@@ -43,15 +43,15 @@ include __DIR__ . '/includes/header.php';
         <header class="resume-header">
             <div>
                 <h1 class="resume-name">Hesten A. <span class="gradient-text">(Sheldon)</span></h1>
-                <p class="resume-role">Undergraduate Student & Web Developer</p>
+                <p class="resume-role">Undergraduate Student &bull; Future Educator &amp; Web Developer</p>
                 <div class="resume-contact-list">
                     <span class="resume-contact-item">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                        Vermont State Colleges
+                        CCV &bull; Vermont State Colleges (VSC)
                     </span>
                     <span class="resume-contact-item">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        student@vsc.edu
+                        <a href="mailto:hla00242@vsc.edu" style="color: inherit; text-decoration: none;">hla00242@vsc.edu</a>
                     </span>
                     <span class="resume-contact-item">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
@@ -68,7 +68,7 @@ include __DIR__ . '/includes/header.php';
                 Profile & Academic Summary
             </h2>
             <p class="resume-entry-desc" style="font-size: 1rem;">
-                Motivated undergraduate student at Vermont State Colleges with a dual passion for high-performance front-end web development and critical sociological research. Dedicated to writing clean, semantic, pure Vanilla CSS and JavaScript web platforms while engaging in rigorous analytical inquiry into social structures, identity, and civic participation.
+                Undergraduate student at the Community College of Vermont (CCV) within the Vermont State Colleges system pursuing an Associate degree in Liberal Studies, on an active pathway to transfer to Vermont State University (VTSU) for a Bachelor of Arts in History and Secondary Education with Special Education (SPED) endorsement. Combines dedication to inclusive pedagogy, historical inquiry, and sociological analysis with hands-on expertise in pure vanilla web engineering and accessible digital learning interfaces.
             </p>
         </section>
 
@@ -78,17 +78,35 @@ include __DIR__ . '/includes/header.php';
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
                 Education
             </h2>
-            <div class="resume-entry">
+            
+            <!-- Current Degree: CCV -->
+            <div class="resume-entry" style="margin-bottom: 1.5rem;">
                 <div class="resume-entry-header">
                     <div>
-                        <span class="resume-entry-title">Vermont State Colleges (VSC)</span>
-                        <span class="resume-entry-subtitle"> &bull; Undergraduate Studies</span>
+                        <span class="resume-entry-title">Community College of Vermont (CCV)</span>
+                        <span class="resume-entry-subtitle"> &bull; A.A. in Liberal Studies</span>
                     </div>
                     <span class="resume-entry-date">2024 &ndash; Present</span>
                 </div>
                 <ul class="resume-bullets">
-                    <li><strong>Relevant Coursework:</strong> INT-1050 (Dimensions of Self and Society), Web Engineering & Application Design, Introduction to Information Technology.</li>
-                    <li><strong>Academic Focus:</strong> Interdisciplinary synthesis of technology, human-computer interaction, and sociological analysis.</li>
+                    <li><strong>Academic Program:</strong> Liberal Studies &bull; Vermont State Colleges (VSC) System.</li>
+                    <li><strong>Relevant Coursework:</strong> INT-1050 (Dimensions of Self and Society), Web Engineering &amp; Application Design, Introduction to Information Technology.</li>
+                    <li><strong>Focus:</strong> Interdisciplinary foundation in humanities, critical sociological inquiry, and digital literacy.</li>
+                </ul>
+            </div>
+
+            <!-- Transfer Pathway: VTSU -->
+            <div class="resume-entry">
+                <div class="resume-entry-header">
+                    <div>
+                        <span class="resume-entry-title">Vermont State University (VTSU)</span>
+                        <span class="resume-entry-subtitle"> &bull; B.A. in History &amp; Secondary Education with SPED (Transfer Pathway)</span>
+                    </div>
+                    <span class="resume-entry-date">Upcoming Transfer</span>
+                </div>
+                <ul class="resume-bullets">
+                    <li><strong>Program of Study:</strong> Bachelor of Arts in History; Secondary Education certification track with Special Education (SPED) endorsement.</li>
+                    <li><strong>Pedagogical Goals:</strong> Inclusive curriculum planning, differentiated instruction, universal design for learning (UDL), and accessible educational technologies.</li>
                 </ul>
             </div>
         </section>
@@ -101,36 +119,38 @@ include __DIR__ . '/includes/header.php';
             </h2>
             <div class="resume-skills-grid">
                 <div class="resume-skill-cat">
-                    <h3 class="resume-skill-cat-title">Front-End Development</h3>
+                    <h3 class="resume-skill-cat-title">Education & Pedagogy</h3>
+                    <div class="resume-skill-tags">
+                        <span class="tag">Special Education (SPED)</span>
+                        <span class="tag">Secondary Education</span>
+                        <span class="tag">Differentiated Instruction</span>
+                        <span class="tag">Universal Design (UDL)</span>
+                        <span class="tag">Classroom Inclusivity</span>
+                        <span class="tag">Curriculum Design</span>
+                    </div>
+                </div>
+
+                <div class="resume-skill-cat">
+                    <h3 class="resume-skill-cat-title">History & Research</h3>
+                    <div class="resume-skill-tags">
+                        <span class="tag">Historical Inquiry</span>
+                        <span class="tag">Sociological Analysis</span>
+                        <span class="tag">Textual Analysis</span>
+                        <span class="tag">MLA / APA Citations</span>
+                        <span class="tag">Primary Source Evaluation</span>
+                        <span class="tag">Academic Writing</span>
+                    </div>
+                </div>
+
+                <div class="resume-skill-cat">
+                    <h3 class="resume-skill-cat-title">Web & Digital Tools</h3>
                     <div class="resume-skill-tags">
                         <span class="tag">HTML5 Semantic</span>
                         <span class="tag">Pure Vanilla CSS</span>
-                        <span class="tag">CSS Custom Properties</span>
-                        <span class="tag">Flexbox / Grid</span>
                         <span class="tag">JavaScript (ES6+)</span>
-                        <span class="tag">PHP (Modular)</span>
-                    </div>
-                </div>
-
-                <div class="resume-skill-cat">
-                    <h3 class="resume-skill-cat-title">Academic & Research</h3>
-                    <div class="resume-skill-tags">
-                        <span class="tag">Textual Analysis</span>
-                        <span class="tag">Sociological Inquiry</span>
-                        <span class="tag">MLA / APA Citations</span>
-                        <span class="tag">Markdown Publishing</span>
-                        <span class="tag">Critical Synthesis</span>
-                    </div>
-                </div>
-
-                <div class="resume-skill-cat">
-                    <h3 class="resume-skill-cat-title">Tools & Architecture</h3>
-                    <div class="resume-skill-tags">
-                        <span class="tag">VS Code</span>
-                        <span class="tag">Git & GitHub</span>
-                        <span class="tag">cPanel Deployment</span>
+                        <span class="tag">Modular PHP</span>
                         <span class="tag">Accessibility (WCAG)</span>
-                        <span class="tag">Zero-Dependency Systems</span>
+                        <span class="tag">Git / GitHub / cPanel</span>
                     </div>
                 </div>
             </div>

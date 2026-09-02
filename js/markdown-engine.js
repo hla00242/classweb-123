@@ -20,7 +20,7 @@ class MarkdownEngine {
             assignment: '',
             course: 'DIMENSIONS OF SELF AND SOCIETY',
             instructor: '',
-            institution: 'Vermont State Colleges'
+            institution: 'Community College of Vermont / VSC'
         };
 
         const contentLines = [];
