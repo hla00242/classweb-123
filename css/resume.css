@@ -37,8 +37,8 @@
     border-radius: var(--radius-xl);
     padding: 3.5rem;
     box-shadow: var(--shadow-xl);
-    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
     position: relative;
 }
 

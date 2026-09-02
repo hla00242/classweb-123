@@ -9,35 +9,35 @@ const siteSearchIndex = [
         title: "Week 1: 'So, What are You, Anyway?'",
         category: "Coursework",
         snippet: "Response paper analyzing Lawrence Hill's allegory on racial identity, prejudice, and parental lessons.",
-        url: "int1050/week1.html",
+        url: "int1050/reader.php?paper=week1.md",
         keywords: "lawrence hill carole racial identity prejudice stewardess shirley temple int1050 week 1 response paper essay"
     },
     {
         title: "Universal Markdown Paper Reader",
         category: "Coursework",
         snippet: "Drop-in Markdown reading engine for any INT-1050 weekly response paper.",
-        url: "int1050/reader.html?paper=week1.md",
-        keywords: "reader markdown dynamic week1 week2 week3 int1050 viewer"
+        url: "int1050/reader.php?paper=week1.md",
+        keywords: "reader markdown dynamic week1 week2 week3 int1050 viewer voice audio narration"
     },
     {
         title: "INT-1050 Course Dashboard",
         category: "Coursework",
         snippet: "Dimensions of Self and Society curriculum roadmap, paper archives, and competencies.",
-        url: "int1050/index.html",
+        url: "int1050/index.php",
         keywords: "int-1050 dimensions self society course class syllabus vermont state colleges"
     },
     {
         title: "Week 2: Community & Civic Engagement",
         category: "Coursework",
         snippet: "Research paper on grassroots initiatives and democratic civic participation.",
-        url: "int1050/index.html#papers",
+        url: "int1050/index.php#papers",
         keywords: "civic engagement community grassroots politics sociology week 2"
     },
     {
         title: "Week 3: Socioeconomic Factors in Urban Planning",
         category: "Coursework",
         snippet: "Analysis of socioeconomic equity in municipal transit, zoning, and infrastructure.",
-        url: "int1050/index.html#papers",
+        url: "int1050/index.php#papers",
         keywords: "urban planning socioeconomic zoning transit policy week 3"
     },
 
@@ -46,22 +46,22 @@ const siteSearchIndex = [
         title: "INT-1050 Course Portal",
         category: "Project",
         snippet: "Centralized academic hub for weekly response papers and course reflections.",
-        url: "int1050/index.html",
+        url: "int1050/index.php",
         keywords: "project int1050 portal academic website"
     },
     {
         title: "Modern Student Portfolio",
         category: "Project",
         snippet: "Pure Vanilla CSS web hub with dark mode, custom design system, and responsive layout.",
-        url: "index.html#about",
+        url: "index.php#about",
         keywords: "project portfolio vanilla css javascript web development design system"
     },
     {
         title: "Editorial Academic Reader",
         category: "Project",
         snippet: "Accessible long-form essay reading tool with font scaling, citations, and print styles.",
-        url: "int1050/week1.html",
-        keywords: "project reader typography accessibility citations tool"
+        url: "int1050/reader.php?paper=week1.md",
+        keywords: "project reader typography accessibility citations tool audio narration"
     },
 
     // --- Blog & Articles ---
@@ -69,21 +69,21 @@ const siteSearchIndex = [
         title: "Why I Rebuilt My Portfolio with Pure Vanilla CSS",
         category: "Blog",
         snippet: "Moving away from heavy runtime CDNs toward a clean, bespoke Vanilla CSS system.",
-        url: "index.html#blog",
+        url: "index.php#blog",
         keywords: "blog vanilla css tailwind rebuild performance web development"
     },
     {
         title: "Analyzing Racial Identity in Literature: Lawrence Hill's Allegory",
         category: "Blog",
         snippet: "Sociological reflection on subtle character interactions and parental values.",
-        url: "int1050/week1.html",
+        url: "int1050/reader.php?paper=week1.md",
         keywords: "blog academic literature lawrence hill race prejudice"
     },
     {
         title: "Crafting Accessible Reading Experiences on the Web",
         category: "Blog",
         snippet: "How font size scalers, serif/sans toggles, and print stylesheets enhance comprehension.",
-        url: "index.html#blog",
+        url: "index.php#blog",
         keywords: "blog ui ux design typography accessibility reading"
     },
 
@@ -92,7 +92,7 @@ const siteSearchIndex = [
         title: "View Academic & Tech Resume (CV)",
         category: "Resume",
         snippet: "View and print Hesten A.'s education, technical skills, coursework, and projects.",
-        url: "resume.html",
+        url: "resume.php",
         keywords: "resume cv education skills experience jobs hire vermont state colleges"
     },
     {
@@ -105,9 +105,9 @@ const siteSearchIndex = [
     {
         title: "Get In Touch / Contact Form",
         category: "Action",
-        snippet: "Send a direct inquiry or message to Hesten A.",
-        url: "index.html#contact",
-        keywords: "contact message email reach out connect hire"
+        snippet: "Send a direct inquiry or message to Hesten A. via FormSubmit.",
+        url: "index.php#contact",
+        keywords: "contact message email reach out connect hire formsubmit"
     }
 ];
 

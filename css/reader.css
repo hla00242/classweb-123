@@ -113,8 +113,8 @@
     top: calc(var(--header-height) + 1rem);
     z-index: 50;
     background: var(--bg-glass);
-    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-full);
     padding: 0.6rem 1.25rem;
@@ -189,7 +189,8 @@
     margin-bottom: 1.85rem;
     color: var(--text-primary);
     text-align: justify;
-    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
 }
 
 .paper-content p:first-of-type::first-letter {
@@ -394,3 +395,202 @@
         color: #333 !important;
     }
 }
+
+/* --------------------------------------------------------------------------
+   Audio Essay Narrator Floating Control Bar
+   -------------------------------------------------------------------------- */
+.audio-narrator-bar {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 900;
+    background: var(--bg-glass);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    padding: 0.6rem 1.25rem;
+    box-shadow: var(--shadow-xl), 0 0 25px rgba(0, 0, 0, 0.15);
+    max-width: 90vw;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.narrator-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.narrator-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.narrator-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--brand-gradient-subtle);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-primary);
+}
+
+.narrator-sound-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.narrator-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: block;
+    color: var(--text-primary);
+}
+
+.narrator-status {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: block;
+}
+
+.narrator-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.narrator-btn {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.narrator-btn:hover:not(:disabled) {
+    background: var(--border-color);
+    transform: scale(1.05);
+}
+
+.narrator-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.narrator-btn-play {
+    background: var(--brand-gradient);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 2px 8px var(--brand-glow);
+}
+
+.narrator-btn-play:hover:not(:disabled) {
+    box-shadow: 0 4px 12px var(--brand-glow);
+    transform: scale(1.08);
+}
+
+.narrator-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.narrator-speed-group {
+    display: flex;
+    gap: 0.25rem;
+    background: var(--bg-tertiary);
+    padding: 0.2rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+}
+
+.narrator-speed-btn {
+    background: transparent;
+    border: none;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all var(--transition-fast);
+}
+
+.narrator-speed-btn.active {
+    background: var(--brand-primary);
+    color: #ffffff;
+}
+
+/* Active Narration Paragraph Highlight */
+.narrating-active {
+    background: var(--brand-gradient-subtle) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 0.85rem 1.25rem !important;
+    margin-left: -1.25rem !important;
+    margin-right: -1.25rem !important;
+    box-shadow: 0 0 0 2px var(--brand-glow);
+    transition: all 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Scholarly Margin Annotations & Notes
+   -------------------------------------------------------------------------- */
+.annotation-ref {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-full);
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    cursor: pointer;
+    vertical-align: super;
+    margin-left: 0.2rem;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+}
+
+.annotation-ref:hover, .annotation-ref.active {
+    background: var(--brand-primary);
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.margin-note-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--brand-accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.margin-note-card strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translate(-50%, 20px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+

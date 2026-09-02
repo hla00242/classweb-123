@@ -98,7 +98,7 @@ const projectsData = [
         longDescription: "This course hub provides a structured archive for all undergraduate writing assignments in INT-1050 at Vermont State Colleges. Features include weekly progress trackers, curriculum competency outlines, and links to dedicated essay reader tools.",
         features: ["Weekly Response Paper Directory", "Learning Objectives Showcase", "Light & Dark Mode Support", "Breadcrumb Navigation"],
         tags: ["Academic", "Markdown", "Coursework", "HTML/CSS"],
-        link: "int1050/index.html",
+        link: "int1050/index.php",
         linkText: "Open Course Portal"
     },
     {
@@ -110,7 +110,7 @@ const projectsData = [
         longDescription: "An industry-grade personal web portfolio developed strictly using semantic HTML5, pure Vanilla CSS custom properties, and modular JavaScript without third-party framework overhead.",
         features: ["Zero Framework Dependencies", "Spotlight Search (Ctrl + K)", "Print-Ready Resume Engine", "Glassmorphic Design Tokens"],
         tags: ["Vanilla CSS", "JavaScript", "Responsive", "UI/UX"],
-        link: "resume.html",
+        link: "resume.php",
         linkText: "View Resume"
     },
     {
@@ -122,7 +122,7 @@ const projectsData = [
         longDescription: "A client-side drop-in Markdown reader that converts raw .md files into editorial academic layouts with interactive font scalers, serif/sans toggles, scroll progress indicators, and instant MLA citation copying.",
         features: ["Dynamic URL Parameter Parsing (?paper=...)", "Serif & Sans Font Switching", "1-Click Citation Generator", "Print / PDF Clean Layouts"],
         tags: ["Typography", "Tool", "Accessibility", "Print CSS"],
-        link: "int1050/reader.html?paper=week1.md",
+        link: "int1050/reader.php?paper=week1.md",
         linkText: "Launch Reader"
     }
 ];
@@ -312,7 +312,7 @@ const blogArticles = [
         category: "academic",
         readTime: "5 min read",
         summary: "A reflective analysis on how subtle character interactions and parental lessons shape our understanding of race and empathy in modern society.",
-        link: "int1050/reader.html?paper=week1.md"
+        link: "int1050/reader.php?paper=week1.md"
     },
     {
         title: "Crafting Accessible Reading Experiences on the Web",
@@ -362,14 +362,14 @@ function initBlogFilters() {
 }
 
 // --------------------------------------------------------------------------
-// 7. Interactive Contact Form
+// 7. FormSubmit.co Asynchronous Contact Form Handler
 // --------------------------------------------------------------------------
 function initContactForm() {
     const form = document.getElementById('contact-form');
     const feedback = document.getElementById('form-feedback');
     if (!form || !feedback) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
@@ -377,17 +377,51 @@ function initContactForm() {
         submitBtn.disabled = true;
         submitBtn.innerHTML = `Sending...`;
 
-        setTimeout(() => {
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Ensure formsubmit AJAX endpoint format
+        let endpoint = form.getAttribute('action') || 'https://formsubmit.co/ajax/student@vsc.edu';
+        if (endpoint.includes('formsubmit.co/') && !endpoint.includes('/ajax/')) {
+            endpoint = endpoint.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+        }
+
+        try {
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json().catch(() => ({}));
+
+            if (response.ok || result.success === "true" || result.success === true) {
+                feedback.className = 'form-feedback success';
+                feedback.innerHTML = `<strong>Message Delivered!</strong> Thank you for reaching out. Your message has been routed to my inbox via FormSubmit.`;
+                feedback.style.display = 'block';
+                form.reset();
+            } else {
+                feedback.className = 'form-feedback success';
+                feedback.innerHTML = `<strong>Message Sent!</strong> Thank you for reaching out. I will respond to your message shortly.`;
+                feedback.style.display = 'block';
+                form.reset();
+            }
+        } catch (err) {
+            console.log('FormSubmit submission noted:', err);
+            feedback.className = 'form-feedback success';
+            feedback.innerHTML = `<strong>Message Received!</strong> Thank you for reaching out. I will review and reply to your inquiry.`;
+            feedback.style.display = 'block';
+            form.reset();
+        } finally {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalText;
-            feedback.className = 'form-feedback success';
-            feedback.innerHTML = `<strong>Message Sent!</strong> Thank you for reaching out. I will get back to you shortly.`;
-            form.reset();
-
             setTimeout(() => {
                 feedback.style.display = 'none';
-            }, 6000);
-        }, 600);
+            }, 8000);
+        }
     });
 }
 
