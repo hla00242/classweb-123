@@ -1,0 +1,396 @@
+/* ==========================================================================
+   Academic Paper Reader Stylesheet - Vanilla CSS
+   Designed for comfortable long-form reading, citations, and print export
+   ========================================================================== */
+
+/* Reading Progress Bar */
+.reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--brand-gradient);
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.1s ease-out;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-nav a {
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.breadcrumb-nav a:hover {
+    color: var(--brand-primary);
+}
+
+.breadcrumb-separator {
+    color: var(--border-color);
+}
+
+/* Reader Container */
+.reader-container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 6rem;
+}
+
+/* Academic Header Card */
+.academic-header {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.academic-header-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-full);
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.academic-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.academic-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.meta-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.meta-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Reader Toolbar */
+.reader-toolbar {
+    position: sticky;
+    top: calc(var(--header-height) + 1rem);
+    z-index: 50;
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    padding: 0.6rem 1.25rem;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toolbar-btn {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all var(--transition-fast);
+}
+
+.toolbar-btn:hover {
+    background: var(--border-color);
+    color: var(--text-primary);
+}
+
+.toolbar-btn.active {
+    background: var(--brand-primary);
+    color: #ffffff;
+    border-color: var(--brand-primary);
+}
+
+.toolbar-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Paper Content & Typography */
+.paper-content {
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: var(--text-secondary);
+    transition: font-size var(--transition-fast);
+}
+
+/* Font Adjusters */
+.paper-content.font-size-sm { font-size: 1.05rem; line-height: 1.75; }
+.paper-content.font-size-md { font-size: 1.15rem; line-height: 1.85; }
+.paper-content.font-size-lg { font-size: 1.3rem; line-height: 1.95; }
+
+.paper-content.font-serif {
+    font-family: 'Merriweather', Georgia, Cambria, serif;
+}
+
+.paper-content.font-sans {
+    font-family: var(--font-main);
+}
+
+.paper-content p {
+    margin-bottom: 1.85rem;
+    color: var(--text-primary);
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.paper-content p:first-of-type::first-letter {
+    font-size: 3.2rem;
+    float: left;
+    line-height: 0.8;
+    margin: 0.1rem 0.6rem 0 0;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: var(--brand-primary);
+}
+
+/* Blockquotes & Pullquotes */
+.paper-quote {
+    position: relative;
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+    background: var(--brand-gradient-subtle);
+    border-left: 4px solid var(--brand-primary);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-style: italic;
+    color: var(--text-primary);
+}
+
+.paper-quote-icon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 3rem;
+    color: var(--brand-glow);
+    font-family: Georgia, serif;
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* Key Takeaway Callout Box */
+.takeaways-box {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin: 3rem 0;
+}
+
+.takeaways-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--brand-primary);
+}
+
+.takeaways-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.takeaways-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.takeaways-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--status-success);
+    font-weight: 800;
+}
+
+/* Citation Box */
+.citation-box {
+    background: var(--bg-card);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.citation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.citation-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.citation-text {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    background: var(--bg-tertiary);
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    word-break: break-all;
+}
+
+/* Next / Prev Paper Navigation Footer */
+.reader-nav-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.paper-nav-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.paper-nav-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.paper-nav-link {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--brand-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.paper-nav-link:hover {
+    color: var(--brand-primary-hover);
+}
+
+/* Toast Confirmation */
+.toast-notice {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-xl);
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.toast-notice.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Print Optimization */
+@media print {
+    .navbar, .reading-progress-bar, .breadcrumb-nav, .reader-toolbar, .footer, .reader-nav-footer, .citation-box button {
+        display: none !important;
+    }
+
+    body, .reader-container, .paper-content {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 12pt !important;
+        line-height: 1.6 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .academic-header {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 0 1.5rem 0 !important;
+        border-bottom: 2px solid #000 !important;
+    }
+
+    .paper-content p {
+        color: #000000 !important;
+    }
+
+    .paper-quote {
+        background: none !important;
+        border-left: 3px solid #666 !important;
+        color: #333 !important;
+    }
+}
