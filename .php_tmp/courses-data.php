@@ -59,8 +59,8 @@ function getAcademicCatalog() {
                 'category_slug' => 'social-sciences',
                 'instructor' => 'Faculty Seminar',
                 'schedule' => 'Tues / Thurs &bull; Hybrid & Canvas',
-                'custom_url' => 'int1050/index.php',
-                'reader_url' => 'int1050/reader.php?paper=week1.md',
+                'custom_url' => 'courses/view.php?code=int1050',
+                'reader_url' => 'courses/reader.php?paper=week1.md',
                 'icon' => 'globe',
                 'description' => 'An interdisciplinary seminar exploring human identity, social constructs, racial prejudice, and civic engagement through literature, sociological research, and philosophical inquiry.',
                 'timeline_milestone' => 'Week 1–4 Response Papers Active',
@@ -75,7 +75,7 @@ function getAcademicCatalog() {
                         'title' => 'Week 1: "So, What are You, Anyway?"',
                         'type' => 'Response Paper',
                         'status' => 'Completed',
-                        'reader_link' => 'int1050/reader.php?paper=week1.md',
+                        'reader_link' => 'courses/reader.php?paper=week1.md',
                         'summary' => 'Analysis of Lawrence Hill\'s literary allegory on racial identity, prejudice, and empathy.'
                     ],
                     [
@@ -105,8 +105,8 @@ function getAcademicCatalog() {
                 'category_slug' => 'history',
                 'instructor' => 'Department of History',
                 'schedule' => 'Mon / Wed &bull; Online & Seminar',
-                'custom_url' => 'his1211/index.php',
-                'reader_url' => 'his1211/reader.php?paper=primary-source-analysis.md',
+                'custom_url' => 'courses/view.php?code=his1211',
+                'reader_url' => 'courses/reader.php?paper=his1211-primary-source.md',
                 'icon' => 'book-open',
                 'description' => 'A foundational survey of early American history from pre-Columbian civilizations through the American Revolution, the formation of the Republic, Civil War, and Reconstruction Era. Essential foundation for History B.A.',
                 'timeline_milestone' => 'Unit 2: Early Constitutional Frameworks',
@@ -121,7 +121,7 @@ function getAcademicCatalog() {
                         'title' => 'Primary Source Analysis: Colonial Charters & Indigenous Treaties',
                         'type' => 'Document Study',
                         'status' => 'Completed',
-                        'reader_link' => 'his1211/reader.php?paper=primary-source-analysis.md',
+                        'reader_link' => 'courses/reader.php?paper=his1211-primary-source.md',
                         'summary' => 'Comparative evaluation of colonial property agreements and indigenous territorial sovereignty.'
                     ],
                     [
@@ -151,8 +151,8 @@ function getAcademicCatalog() {
                 'category_slug' => 'education',
                 'instructor' => 'Education Department',
                 'schedule' => 'Wednesday Evenings &bull; Hybrid Practicum',
-                'custom_url' => 'edu1030/index.php',
-                'reader_url' => 'edu1030/reader.php?paper=udl-case-study.md',
+                'custom_url' => 'courses/view.php?code=edu1030',
+                'reader_url' => 'courses/reader.php?paper=edu1030-udl.md',
                 'icon' => 'academic-cap',
                 'description' => 'An introduction to pedagogical foundations, special education laws (IDEA, Section 504), Individualized Education Programs (IEPs), differentiated instruction, and Universal Design for Learning (UDL) in secondary school environments.',
                 'timeline_milestone' => 'Module 3: UDL Lesson Scaffolding',
@@ -167,7 +167,7 @@ function getAcademicCatalog() {
                         'title' => 'Case Study: Designing Accommodations for Neurodivergent Learners',
                         'type' => 'Clinical Case Study',
                         'status' => 'Completed',
-                        'reader_link' => 'edu1030/reader.php?paper=udl-case-study.md',
+                        'reader_link' => 'courses/reader.php?paper=edu1030-udl.md',
                         'summary' => 'Formulating individualized accommodations and multi-tiered systems of support (MTSS).'
                     ],
                     [
@@ -197,8 +197,8 @@ function getAcademicCatalog() {
                 'category_slug' => 'technology',
                 'instructor' => 'Computer Information Systems',
                 'schedule' => 'Online &bull; Interactive Labs',
-                'custom_url' => 'cis1151/index.php',
-                'reader_url' => 'cis1151/reader.php?paper=pure-css-architecture.md',
+                'custom_url' => 'courses/view.php?code=cis1151',
+                'reader_url' => 'courses/reader.php?paper=cis1151-architecture.md',
                 'icon' => 'code',
                 'description' => 'Hands-on engineering in semantic HTML5, pure CSS design systems, responsive layouts, accessibility standards (WCAG 2.1 AA), and lightweight client-side JavaScript architecture.',
                 'timeline_milestone' => 'Milestone 4: Portfolio & Dynamic Reader System',
@@ -213,14 +213,14 @@ function getAcademicCatalog() {
                         'title' => 'ClassWeb Architecture: Pure Vanilla CSS Design System',
                         'type' => 'Production Project',
                         'status' => 'Completed',
-                        'reader_link' => 'cis1151/reader.php?paper=pure-css-architecture.md',
+                        'reader_link' => 'courses/reader.php?paper=cis1151-architecture.md',
                         'summary' => 'Zero-dependency design system with theme toggles, fluid typography, and command palette.'
                     ],
                     [
                         'title' => 'Universal Markdown Paper Reader Engine',
                         'type' => 'Interactive Tool',
                         'status' => 'Completed',
-                        'reader_link' => 'cis1151/reader.php?paper=pure-css-architecture.md',
+                        'reader_link' => 'courses/reader.php?paper=cis1151-architecture.md',
                         'summary' => 'Client-side markdown parser with font-scaling, citation generators, and Web Speech API.'
                     ],
                     [
@@ -244,8 +244,8 @@ function getAcademicCatalog() {
                 'category_slug' => 'history',
                 'instructor' => 'English & Humanities',
                 'schedule' => 'Tuesdays &bull; Online Seminar',
-                'custom_url' => 'eng1061/index.php',
-                'reader_url' => 'eng1061/reader.php?paper=rhetorical-analysis.md',
+                'custom_url' => 'courses/view.php?code=eng1061',
+                'reader_url' => 'courses/reader.php?paper=eng1061-rhetoric.md',
                 'icon' => 'pencil-alt',
                 'description' => 'Advanced academic writing, rhetorical strategies, persuasive argumentation, empirical source evaluation, and peer review methodologies across academic disciplines.',
                 'timeline_milestone' => 'Research Essay Draft Phase',
@@ -260,7 +260,7 @@ function getAcademicCatalog() {
                         'title' => 'Rhetorical Analysis: Persuasion in Educational Reform Policy',
                         'type' => 'Essay',
                         'status' => 'Completed',
-                        'reader_link' => 'eng1061/reader.php?paper=rhetorical-analysis.md',
+                        'reader_link' => 'courses/reader.php?paper=eng1061-rhetoric.md',
                         'summary' => 'Analyzing discourse techniques in contemporary special education policy debates.'
                     ],
                     [

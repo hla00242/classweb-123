@@ -23,7 +23,10 @@ include __DIR__ . '/includes/header.php';
             <a href="index.php" class="btn btn-secondary btn-sm">
                 &larr; Return to Portfolio
             </a>
-            <a href="int1050/index.php" class="btn btn-secondary btn-sm">
+            <a href="courses/index.php" class="btn btn-secondary btn-sm">
+                Academic Catalog
+            </a>
+            <a href="courses/view.php?code=int1050" class="btn btn-secondary btn-sm">
                 INT-1050 Course Hub
             </a>
         </div>

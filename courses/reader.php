@@ -1,24 +1,37 @@
 <?php
 /**
- * EDU-1030 Dynamic Markdown & Special Education Paper Reader
+ * Universal Dynamic Markdown & Academic Essay Reader
+ * Loads any markdown file from /courses/papers/, extracts metadata, renders typography tools, and audio narration.
  */
 require_once __DIR__ . '/../includes/functions.php';
 
-$paperFile = $_GET['paper'] ?? 'udl-case-study.md';
+$paperFile = $_GET['paper'] ?? 'week1.md';
 $paperFile = basename($paperFile);
-$fullPath = __DIR__ . '/' . $paperFile;
+$fullPath = __DIR__ . '/papers/' . $paperFile;
 
-$defaultTitle = 'EDU-1030 Paper Reader';
+// Fallback check in int1050/ if needed
+if (!file_exists($fullPath) && file_exists(__DIR__ . '/../int1050/' . $paperFile)) {
+    $fullPath = __DIR__ . '/../int1050/' . $paperFile;
+}
+
+$defaultTitle = 'Academic Essay Reader';
+$defaultCourse = 'Academic Coursework';
 if (file_exists($fullPath)) {
     $content = file_get_contents($fullPath);
-    $firstLine = strtok($content, "\r\n");
-    if (!empty($firstLine) && !str_contains($firstLine, ':')) {
-        $defaultTitle = ltrim($firstLine, '# ');
+    $lines = preg_split('/\r\n|\r|\n/', trim($content));
+    foreach ($lines as $i => $line) {
+        $trimmed = trim($line);
+        if ($i === 0 && !empty($trimmed)) {
+            $defaultTitle = ltrim($trimmed, '# ');
+        }
+        if (str_starts_with(strtolower($trimmed), 'course:')) {
+            $defaultCourse = trim(substr($trimmed, strpos($trimmed, ':') + 1));
+        }
     }
 }
 
-$pageTitle = $defaultTitle . ' | EDU-1030 Reader';
-$metaDescription = "Read '" . $defaultTitle . "' by Hesten A. (Sheldon) for EDU-1030 Intro to Special & Secondary Education.";
+$pageTitle = $defaultTitle . ' | Academic Reader';
+$metaDescription = "Read '" . $defaultTitle . "' by Hesten A. (Sheldon) with audio narration and typography tools.";
 $activePage = 'courses';
 $rootPath = '../';
 $extraStyles = ['css/reader.css'];
@@ -27,19 +40,24 @@ $extraScripts = ['js/markdown-engine.js', 'js/reader.js', 'js/audio-narrator.js'
 include __DIR__ . '/../includes/header.php';
 ?>
 
+<!-- Reading Progress Bar -->
 <div id="reading-progress" class="reading-progress-bar" role="progressbar" aria-label="Reading progress"></div>
 
+<!-- Main Reader Wrapper -->
 <main class="reader-container">
+
+    <!-- Breadcrumb Navigation -->
     <nav class="breadcrumb-nav" aria-label="Breadcrumb">
         <a href="../index.php">Home</a>
         <span class="breadcrumb-separator">/</span>
-        <a href="index.php">EDU-1030</a>
+        <a href="index.php">Academic Catalog</a>
         <span class="breadcrumb-separator">/</span>
         <span id="breadcrumb-paper-title"><?= e($defaultTitle) ?></span>
     </nav>
 
+    <!-- Academic Metadata Header -->
     <header id="academic-header" class="academic-header">
-        <span id="paper-badge" class="academic-header-tag">EDU-1030 &bull; SPED Clinical Case Study</span>
+        <span id="paper-badge" class="academic-header-tag"><?= e($defaultCourse) ?></span>
         <h1 id="paper-title" class="academic-title"><?= e($defaultTitle) ?></h1>
 
         <div class="academic-meta-grid">
@@ -49,7 +67,7 @@ include __DIR__ . '/../includes/header.php';
             </div>
             <div class="meta-item">
                 <span class="meta-label">Course</span>
-                <span id="paper-course" class="meta-value">EDU-1030: Special & Secondary Education</span>
+                <span id="paper-course" class="meta-value"><?= e($defaultCourse) ?></span>
             </div>
             <div class="meta-item">
                 <span class="meta-label">Date</span>
@@ -65,22 +83,25 @@ include __DIR__ . '/../includes/header.php';
     <!-- Reader Controls Bar -->
     <section class="reader-controls-bar" aria-label="Reading Tools">
         <div class="control-group">
-            <button id="font-decrease" class="control-btn" title="Decrease text size">A-</button>
-            <button id="font-reset" class="control-btn" title="Reset text size">A</button>
-            <button id="font-increase" class="control-btn" title="Increase text size">A+</button>
+            <button id="font-decrease" class="control-btn" title="Decrease text size" aria-label="Decrease text size">A-</button>
+            <button id="font-reset" class="control-btn" title="Reset text size" aria-label="Reset text size">A</button>
+            <button id="font-increase" class="control-btn" title="Increase text size" aria-label="Increase text size">A+</button>
         </div>
 
         <div class="control-group">
-            <button id="font-serif-btn" class="control-btn active" title="Serif font">Serif</button>
-            <button id="font-sans-btn" class="control-btn" title="Sans-Serif font">Sans</button>
+            <button id="font-serif-btn" class="control-btn active" title="Serif font" aria-pressed="true">Serif</button>
+            <button id="font-sans-btn" class="control-btn" title="Sans-Serif font" aria-pressed="false">Sans</button>
         </div>
 
         <div class="control-group">
-            <button id="tts-play-btn" class="control-btn tts-btn" title="Listen to paper audio">
+            <button id="tts-play-btn" class="control-btn tts-btn" title="Listen to paper audio" aria-label="Listen to paper narration">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                 <span>Listen (Audio)</span>
             </button>
-            <button onclick="window.print()" class="control-btn" title="Print paper">Print</button>
+            <button onclick="window.print()" class="control-btn" title="Print paper">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                Print
+            </button>
         </div>
     </section>
 
@@ -99,39 +120,47 @@ include __DIR__ . '/../includes/header.php';
             <button id="copy-citation-btn" class="btn btn-secondary btn-sm">Copy Citation</button>
         </div>
         <div id="citation-text" class="citation-text">
-            Sheldon, Hesten A. "<?= e($defaultTitle) ?>." EDU-1030: Introduction to Special & Secondary Education, Community College of Vermont / Vermont State Colleges, 2026.
+            Sheldon, Hesten A. "<?= e($defaultTitle) ?>." Community College of Vermont / Vermont State Colleges, <?= date('Y') ?>.
         </div>
     </section>
 
+    <!-- Reader Navigation Footer -->
     <footer class="reader-nav-footer">
         <div class="paper-nav-card">
-            <span class="paper-nav-label">Course Portal</span>
-            <a href="index.php" class="paper-nav-link">&larr; Back to EDU-1030 Hub</a>
+            <span class="paper-nav-label">Academic Hub</span>
+            <a href="index.php" class="paper-nav-link">&larr; Back to Course Catalog</a>
         </div>
         <div class="paper-nav-card" style="text-align: right;">
             <span class="paper-nav-label">Main Site</span>
             <a href="../index.php" class="paper-nav-link">Return to Portfolio &rarr;</a>
         </div>
     </footer>
+
 </main>
 
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const paperFile = urlParams.get('paper') || '<?= e($paperFile) ?>';
+    const fetchPath = 'papers/' + paperFile;
 
     try {
-        const response = await fetch(paperFile);
+        let response = await fetch(fetchPath);
+        if (!response.ok) {
+            // fallback
+            response = await fetch(paperFile);
+        }
         if (!response.ok) throw new Error(`Failed to load ${paperFile}`);
         const rawMarkdown = await response.text();
         const parsed = MarkdownEngine.parse(rawMarkdown);
 
-        document.getElementById('paper-title').textContent = parsed.meta.title || 'Special Education Paper';
-        document.title = `${parsed.meta.title} | EDU-1030 Reader`;
+        document.getElementById('paper-title').textContent = parsed.meta.title || 'Academic Paper';
+        document.title = `${parsed.meta.title} | Academic Reader`;
         document.getElementById('breadcrumb-paper-title').textContent = parsed.meta.title;
         if (parsed.meta.author) document.getElementById('paper-author').textContent = parsed.meta.author;
         if (parsed.meta.course) document.getElementById('paper-course').textContent = parsed.meta.course;
         if (parsed.meta.date) document.getElementById('paper-date').textContent = parsed.meta.date;
+        if (parsed.meta.course) document.getElementById('paper-badge').textContent = parsed.meta.course;
 
         const words = rawMarkdown.trim().split(/\s+/).length;
         document.getElementById('paper-read-time').textContent = `${Math.ceil(words / 200)} min read (${words} words)`;
@@ -139,13 +168,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         const paperContent = document.getElementById('paper-content');
         paperContent.innerHTML = parsed.html;
 
+        const citeYear = parsed.meta.date ? (parsed.meta.date.match(/\d{4}/) ? parsed.meta.date.match(/\d{4}/)[0] : '2026') : '2026';
         document.getElementById('citation-text').textContent = 
-            `Sheldon, Hesten A. "${parsed.meta.title}." EDU-1030: Introduction to Special & Secondary Education, Community College of Vermont / Vermont State Colleges, 2026.`;
+            `Sheldon, Hesten A. "${parsed.meta.title}." ${parsed.meta.course || 'Academic Coursework'}, Community College of Vermont / Vermont State Colleges, ${citeYear}.`;
     } catch (err) {
         document.getElementById('paper-content').innerHTML = `
             <div style="padding: 2rem; background: var(--status-warning-bg); border-radius: var(--radius-md); border: 1px solid var(--status-warning);">
                 <h3>Unable to Load Document</h3>
-                <p>Ensure <code>${paperFile}</code> exists in the <code>edu1030/</code> directory.</p>
+                <p>Ensure <code>${paperFile}</code> exists in the <code>courses/papers/</code> folder.</p>
             </div>
         `;
     }

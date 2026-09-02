@@ -23,50 +23,64 @@ const siteSearchIndex = [
         title: "HIS-1211: U.S. History to 1877",
         category: "Coursework",
         snippet: "Early American history from pre-Columbian civilizations to Reconstruction. Foundation for History B.A.",
-        url: "his1211/index.php",
+        url: "courses/view.php?code=his1211",
         keywords: "his1211 his-1211 history american revolution constitution civil war reconstruction ccv vtsu"
     },
     {
         title: "EDU-1030: Intro to Special & Secondary Education",
         category: "Coursework",
         snippet: "Pedagogical foundations, IDEA, 504 plans, IEP accommodations, and Universal Design for Learning (UDL).",
-        url: "edu1030/index.php",
+        url: "courses/view.php?code=edu1030",
         keywords: "edu1030 edu-1030 education sped special education secondary teaching udl iep idea pedagogy"
     },
     {
         title: "CIS-1151: Websites & Web Application Design",
         category: "Coursework",
         snippet: "Semantic HTML5, pure Vanilla CSS design systems, WCAG 2.1 accessibility, and JavaScript architectures.",
-        url: "cis1151/index.php",
+        url: "courses/view.php?code=cis1151",
         keywords: "cis1151 cis-1151 websites web applications css javascript accessibility html5 design system"
     },
     {
         title: "ENG-1061: English Composition & Critical Inquiry",
         category: "Coursework",
         snippet: "Advanced academic writing, rhetorical analysis, argumentation, and empirical research methods.",
-        url: "eng1061/index.php",
+        url: "courses/view.php?code=eng1061",
         keywords: "eng1061 eng-1061 english composition writing essays rhetorical critical inquiry research"
     },
     {
         title: "INT-1050: Dimensions of Self and Society",
         category: "Coursework",
         snippet: "Interdisciplinary seminar exploring identity, social structures, racial prejudice, and civic duty.",
-        url: "int1050/index.php",
+        url: "courses/view.php?code=int1050",
         keywords: "int1050 int-1050 dimensions self society course class syllabus vermont state colleges ccv"
+    },
+    {
+        title: "SED-3050: Assessment & Accommodations in SPED",
+        category: "Coursework",
+        snippet: "Formal/informal diagnostic assessment, MTSS, individualized behavioral plans, and adaptive technology.",
+        url: "courses/view.php?code=sed3050",
+        keywords: "sed3050 sed-3050 sped assessment accommodations special education vtsu vermont state university"
+    },
+    {
+        title: "HIS-2010: Historical Methods & Historiography",
+        category: "Coursework",
+        snippet: "Historiographical traditions, primary archive analysis, and historical writing methodology.",
+        url: "courses/view.php?code=his2010",
+        keywords: "his2010 his-2010 history methods historiography primary sources vtsu"
     },
     {
         title: "Week 1: 'So, What are You, Anyway?'",
         category: "Coursework",
         snippet: "Response paper analyzing Lawrence Hill's allegory on racial identity, prejudice, and parental lessons.",
-        url: "int1050/reader.php?paper=week1.md",
+        url: "courses/reader.php?paper=week1.md",
         keywords: "lawrence hill carole racial identity prejudice stewardess shirley temple int1050 week 1 response paper essay"
     },
     {
         title: "Universal Markdown Paper Reader",
         category: "Coursework",
-        snippet: "Drop-in Markdown reading engine for any INT-1050 weekly response paper.",
-        url: "int1050/reader.php?paper=week1.md",
-        keywords: "reader markdown dynamic week1 week2 week3 int1050 viewer voice audio narration"
+        snippet: "Dynamic academic essay reader with font scaling, MLA citations, and Web Speech audio narration.",
+        url: "courses/reader.php?paper=week1.md",
+        keywords: "reader markdown dynamic week1 week2 week3 viewer voice audio narration"
     },
 
     // --- Projects ---

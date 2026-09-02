@@ -166,7 +166,7 @@ include __DIR__ . '/../includes/header.php';
                     Spring 2026 Roster
                 </h2>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <a href="../int1050/index.php" style="padding: 0.65rem 0.85rem; border-radius: var(--radius-md); background: var(--bg-secondary); border: 1px solid var(--border-color); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+                    <a href="view.php?code=int1050" style="padding: 0.65rem 0.85rem; border-radius: var(--radius-md); background: var(--bg-secondary); border: 1px solid var(--border-color); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
                         <span style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary);">INT-1050: Dimensions of Self &amp; Society</span>
                         <span style="font-size: 0.75rem; color: var(--brand-primary);">&rarr;</span>
                     </a>
@@ -184,6 +184,28 @@ include __DIR__ . '/../includes/header.php';
                     </a>
                     <a href="view.php?code=eng1061" style="padding: 0.65rem 0.85rem; border-radius: var(--radius-md); background: var(--bg-secondary); border: 1px solid var(--border-color); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
                         <span style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary);">ENG-1061: English Composition</span>
+                        <span style="font-size: 0.75rem; color: var(--brand-primary);">&rarr;</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- VTSU Transfer Pathway Courses -->
+            <section class="course-hub-section">
+                <h2 class="course-hub-section-title">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    VTSU Degree Pathway
+                </h2>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="view.php?code=sed3050" style="padding: 0.65rem 0.85rem; border-radius: var(--radius-md); background: var(--bg-secondary); border: 1px solid var(--border-color); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary);">SED-3050: Assessment &amp; Accommodations in SPED</span>
+                        <span style="font-size: 0.75rem; color: var(--brand-primary);">&rarr;</span>
+                    </a>
+                    <a href="view.php?code=his2010" style="padding: 0.65rem 0.85rem; border-radius: var(--radius-md); background: var(--bg-secondary); border: 1px solid var(--border-color); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary);">HIS-2010: Historiography &amp; Methods</span>
+                        <span style="font-size: 0.75rem; color: var(--brand-primary);">&rarr;</span>
+                    </a>
+                    <a href="view.php?code=edu3210" style="padding: 0.65rem 0.85rem; border-radius: var(--radius-md); background: var(--bg-secondary); border: 1px solid var(--border-color); text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary);">EDU-3210: Curriculum Design in Sec Ed</span>
                         <span style="font-size: 0.75rem; color: var(--brand-primary);">&rarr;</span>
                     </a>
                 </div>
