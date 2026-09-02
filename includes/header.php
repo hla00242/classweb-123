@@ -80,7 +80,8 @@ if (!isset($activePage)) $activePage = '';
             <nav aria-label="Main Navigation">
                 <ul class="nav-links">
                     <li><a href="<?= $rootPath ?>index.php#about" class="nav-link <?= $activePage === 'about' ? 'active' : '' ?>">About</a></li>
-                    <li><a href="<?= $rootPath ?>int1050/index.php" class="nav-link <?= $activePage === 'coursework' ? 'active' : '' ?>">Coursework</a></li>
+                    <li><a href="<?= $rootPath ?>courses/index.php" class="nav-link <?= $activePage === 'courses' ? 'active' : '' ?>">Classes &amp; Timeline</a></li>
+                    <li><a href="<?= $rootPath ?>int1050/index.php" class="nav-link <?= $activePage === 'coursework' ? 'active' : '' ?>">INT-1050</a></li>
                     <li><a href="<?= $rootPath ?>index.php#skills" class="nav-link <?= $activePage === 'skills' ? 'active' : '' ?>">Skills</a></li>
                     <li><a href="<?= $rootPath ?>index.php#projects" class="nav-link <?= $activePage === 'projects' ? 'active' : '' ?>">Projects</a></li>
                     <li><a href="<?= $rootPath ?>index.php#blog" class="nav-link <?= $activePage === 'blog' ? 'active' : '' ?>">Blog</a></li>
@@ -119,7 +120,8 @@ if (!isset($activePage)) $activePage = '';
         <div class="mobile-drawer" id="mobile-drawer">
             <ul class="mobile-nav-links">
                 <li><a href="<?= $rootPath ?>index.php#about" class="nav-link">About</a></li>
-                <li><a href="<?= $rootPath ?>int1050/index.php" class="nav-link">Coursework</a></li>
+                <li><a href="<?= $rootPath ?>courses/index.php" class="nav-link">Classes &amp; Timeline</a></li>
+                <li><a href="<?= $rootPath ?>int1050/index.php" class="nav-link">INT-1050 Hub</a></li>
                 <li><a href="<?= $rootPath ?>index.php#skills" class="nav-link">Skills</a></li>
                 <li><a href="<?= $rootPath ?>index.php#projects" class="nav-link">Projects</a></li>
                 <li><a href="<?= $rootPath ?>index.php#blog" class="nav-link">Blog</a></li>

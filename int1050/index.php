@@ -23,7 +23,7 @@ include __DIR__ . '/../includes/header.php';
     <nav aria-label="Breadcrumbs" style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; margin-bottom: 2rem;">
         <a href="../index.php" style="color: var(--brand-primary); font-weight: 600;">Home</a>
         <span style="color: var(--text-muted);">&bull;</span>
-        <span style="color: var(--text-muted);">Coursework</span>
+        <a href="../courses/index.php" style="color: var(--brand-primary); font-weight: 600;">Academic Catalog</a>
         <span style="color: var(--text-muted);">&bull;</span>
         <span style="color: var(--text-primary); font-weight: 600;">INT-1050</span>
     </nav>
@@ -38,6 +38,9 @@ include __DIR__ . '/../includes/header.php';
                 </h1>
             </div>
             <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../courses/index.php" class="btn btn-secondary btn-sm">
+                    &larr; All Classes
+                </a>
                 <a href="reader.php?paper=week1.md" class="btn btn-primary btn-sm">
                     Launch Dynamic Reader
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>

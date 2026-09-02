@@ -9,6 +9,10 @@ $pageTitle = 'Hesten A. (Sheldon) | Student Portfolio & Academic Hub';
 $metaDescription = 'Undergraduate Student Portfolio for Hesten A. (Sheldon) — Liberal Studies at CCV / VSC, transferring to VTSU for History B.A. & Secondary Education with SPED.';
 $activePage = 'home';
 $rootPath = '';
+$extraStyles = ['css/courses.css'];
+
+$catalog = getAcademicCatalog();
+$springCourses = $catalog['semesters']['spring-2026']['courses'];
 
 include __DIR__ . '/includes/header.php';
 ?>
@@ -76,73 +80,207 @@ include __DIR__ . '/includes/header.php';
         </div>
     </section>
 
-    <!-- Coursework Hub Section -->
+    <!-- Coursework & Semester Timeline Section -->
     <section id="coursework" class="section" style="background: var(--bg-tertiary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Academic Coursework</span>
-                <h2 class="section-title">Coursework & Response Papers</h2>
-                <p class="section-subtitle">A curated directory of research, critical reflections, and weekly essays for my classes.</p>
-            </div>
-
-            <!-- Featured INT-1050 Card -->
-            <div class="course-featured-card">
-                <div class="course-header-row">
-                    <div>
-                        <span class="course-code-badge">INT-1050 &bull; Vermont State Colleges</span>
-                        <h3 class="course-title">Dimensions of Self and Society</h3>
-                    </div>
-                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                        <a href="int1050/reader.php?paper=week1.md" class="btn btn-secondary btn-sm" title="Launch Universal Markdown Reader">
-                            Universal Markdown Reader
-                        </a>
-                        <a href="int1050/index.php" class="btn btn-primary btn-sm">
-                            Open Course Portal
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-                <p class="course-desc">
-                    An interdisciplinary seminar exploring human identity, social constructs, racial prejudice, and civic engagement. This portal hosts my weekly analytical response papers and reading syntheses.
+            <div class="section-header" style="max-width: 800px; margin: 0 auto 2.5rem auto;">
+                <span class="section-tag">Spring 2026 Academic Roster</span>
+                <h2 class="section-title">Current Semester <span class="gradient-text">Timeline &amp; Classes</span></h2>
+                <p class="section-subtitle">
+                    Active coursework roadmap at Community College of Vermont (CCV) bridging into Vermont State University (VTSU) for History B.A. &amp; Secondary Education with SPED.
                 </p>
+            </div>
 
-                <!-- Preview Papers in Course -->
-                <div class="course-papers-preview">
-                    <a href="int1050/reader.php?paper=week1.md" class="paper-mini-card">
-                        <div>
-                            <span class="tag" style="background: var(--status-success-bg); color: var(--status-success); border-color: rgba(16, 185, 129, 0.2); margin-bottom: 0.5rem; display: inline-block;">Completed</span>
-                            <h4 class="paper-mini-title">Week 1: "So, What are You, Anyway?"</h4>
-                            <p class="paper-mini-meta">Response to Lawrence Hill's allegory on racial identity & prejudice.</p>
-                        </div>
-                        <span class="card-link" style="margin-top: 1rem;">Read Paper &rarr;</span>
-                    </a>
-
-                    <div class="paper-mini-card" style="opacity: 0.75;">
-                        <div>
-                            <span class="tag" style="margin-bottom: 0.5rem; display: inline-block;">Coming Soon</span>
-                            <h4 class="paper-mini-title">Week 2: Community & Civic Engagement</h4>
-                            <p class="paper-mini-meta">Analyzing the mechanisms of grassroots community action.</p>
-                        </div>
-                        <span class="card-link" style="margin-top: 1rem; color: var(--text-muted);">In Progress</span>
-                    </div>
-
-                    <div class="paper-mini-card" style="opacity: 0.75;">
-                        <div>
-                            <span class="tag" style="margin-bottom: 0.5rem; display: inline-block;">Coming Soon</span>
-                            <h4 class="paper-mini-title">Week 3: Socioeconomic Factors in Urban Planning</h4>
-                            <p class="paper-mini-meta">Examining equity in local infrastructure and zoning.</p>
-                        </div>
-                        <span class="card-link" style="margin-top: 1rem; color: var(--text-muted);">In Progress</span>
-                    </div>
+            <!-- Toolbar / Quick Controls -->
+            <div class="catalog-toolbar" style="margin-bottom: 2.5rem;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                    <span class="degree-status-pill">
+                        <span class="pulse-dot"></span>
+                        Spring 2026 Active Term (Weeks 1 &ndash; 15)
+                    </span>
+                    <span class="tag" style="background: var(--badge-bg); color: var(--badge-text); font-weight: 700;">
+                        5 Enrolled Classes &bull; 15 Credits
+                    </span>
                 </div>
 
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                    <span style="font-size: 0.85rem; color: var(--text-muted);">💡 <em>Tip: New weekly papers in .md format can be read dynamically in the reader!</em></span>
-                    <a href="int1050/index.php" class="card-link">View all assignments in INT-1050 &rarr;</a>
+                <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                    <div class="view-toggle-group">
+                        <button class="view-toggle-btn active" id="home-view-timeline" title="Timeline View">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Timeline
+                        </button>
+                        <button class="view-toggle-btn" id="home-view-grid" title="Grid View">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                            Grid
+                        </button>
+                    </div>
+
+                    <a href="courses/index.php" class="btn btn-primary btn-sm">
+                        View All Classes &amp; Degree Pathway &rarr;
+                    </a>
                 </div>
             </div>
+
+            <!-- 1. SEMESTER TIMELINE VIEW -->
+            <div id="home-timeline-container" class="semester-timeline">
+                <?php foreach ($springCourses as $courseKey): 
+                    $course = $catalog['courses'][$courseKey];
+                    $url = (str_contains($course['custom_url'], 'http') || str_starts_with($course['custom_url'], '../')) 
+                            ? $course['custom_url'] 
+                            : $rootPath . $course['custom_url'];
+                ?>
+                    <div class="timeline-item active">
+                        <div class="timeline-node">
+                            <div class="timeline-node-inner"></div>
+                        </div>
+
+                        <div class="timeline-content-card">
+                            <div class="timeline-card-header">
+                                <span class="timeline-code-badge"><?= e($course['code']) ?></span>
+                                <span class="tag" style="background: var(--brand-gradient-subtle); color: var(--brand-primary); font-weight:700;">
+                                    <?= e($course['status_badge']) ?>
+                                </span>
+                            </div>
+
+                            <h3 class="timeline-course-title">
+                                <a href="<?= e($url) ?>" style="color: inherit; text-decoration: none;">
+                                    <?= e($course['title']) ?>
+                                </a>
+                            </h3>
+
+                            <div class="timeline-course-meta">
+                                <span><?= e($course['institution']) ?></span>
+                                <span>&bull;</span>
+                                <span><?= e($course['credits']) ?> Credits</span>
+                                <span>&bull;</span>
+                                <span style="color: var(--brand-primary); font-weight: 600;"><?= e($course['schedule']) ?></span>
+                            </div>
+
+                            <p class="timeline-course-desc">
+                                <?= e($course['description']) ?>
+                            </p>
+
+                            <div class="timeline-milestone-pill">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                <span><?= e($course['timeline_milestone']) ?></span>
+                            </div>
+
+                            <div class="timeline-actions">
+                                <a href="<?= e($url) ?>" class="btn btn-primary btn-sm">
+                                    Open Course Portal
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                </a>
+                                <?php if (isset($course['reader_url'])): ?>
+                                    <a href="<?= $rootPath . e($course['reader_url']) ?>" class="btn btn-secondary btn-sm" title="Launch Markdown Reader">
+                                        Academic Reader
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+            <!-- 2. SEMESTER GRID VIEW (Initially Hidden) -->
+            <div id="home-grid-container" class="course-catalog-grid" style="display: none; margin-top: 1.5rem;">
+                <?php foreach ($springCourses as $courseKey): 
+                    $course = $catalog['courses'][$courseKey];
+                    $url = (str_contains($course['custom_url'], 'http') || str_starts_with($course['custom_url'], '../')) 
+                            ? $course['custom_url'] 
+                            : $rootPath . $course['custom_url'];
+                ?>
+                    <article class="course-card-enhanced">
+                        <div>
+                            <div class="course-card-top">
+                                <span class="timeline-code-badge"><?= e($course['code']) ?></span>
+                                <span class="tag" style="background: var(--brand-gradient-subtle); color: var(--brand-primary); font-weight:700;">
+                                    <?= e($course['status_badge']) ?>
+                                </span>
+                            </div>
+
+                            <h3 class="course-card-title">
+                                <a href="<?= e($url) ?>" style="color: inherit; text-decoration: none;">
+                                    <?= e($course['title']) ?>
+                                </a>
+                            </h3>
+
+                            <div class="timeline-course-meta">
+                                <span><?= e($course['institution']) ?></span>
+                                <span>&bull;</span>
+                                <span><?= e($course['credits']) ?> Credits</span>
+                            </div>
+
+                            <p class="course-card-desc">
+                                <?= e($course['description']) ?>
+                            </p>
+
+                            <div class="course-competencies-list">
+                                <?php foreach (array_slice($course['competencies'], 0, 3) as $comp): ?>
+                                    <span class="competency-tag"><?= e($comp) ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+
+                        <div class="course-card-footer">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">
+                                <?= e($course['schedule']) ?>
+                            </span>
+                            <a href="<?= e($url) ?>" class="btn btn-secondary btn-sm">
+                                Open Hub &rarr;
+                            </a>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+
+            <!-- Degree Pathway Bridge Banner -->
+            <div style="margin-top: 3.5rem; background: var(--bg-card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; box-shadow: var(--shadow-md);">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                        <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brand-primary);">Complete Academic Record</span>
+                        <span class="tag" style="font-size: 0.75rem;">CCV &rarr; VTSU Pathway</span>
+                    </div>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.45rem; font-weight: 700; color: var(--text-primary); margin: 0.25rem 0;">
+                        Looking for previous coursework or upcoming transfer courses?
+                    </h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">
+                        Explore all Fall 2025 completed classes and planned VTSU History &amp; Special Education (SPED) degree courses.
+                    </p>
+                </div>
+                <a href="courses/index.php" class="btn btn-primary" style="white-space: nowrap;">
+                    Open Master Course Catalog
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+
         </div>
     </section>
+
+    <!-- Homepage View Switcher Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btnTimeline = document.getElementById('home-view-timeline');
+        const btnGrid = document.getElementById('home-view-grid');
+        const timelineContainer = document.getElementById('home-timeline-container');
+        const gridContainer = document.getElementById('home-grid-container');
+
+        if (btnTimeline && btnGrid && timelineContainer && gridContainer) {
+            btnTimeline.addEventListener('click', () => {
+                btnTimeline.classList.add('active');
+                btnGrid.classList.remove('active');
+                timelineContainer.style.display = 'block';
+                gridContainer.style.display = 'none';
+            });
+
+            btnGrid.addEventListener('click', () => {
+                btnGrid.classList.add('active');
+                btnTimeline.classList.remove('active');
+                gridContainer.style.display = 'grid';
+                timelineContainer.style.display = 'none';
+            });
+        }
+    });
+    </script>
 
     <!-- Skills & Tech Matrix Section -->
     <section id="skills" class="section">

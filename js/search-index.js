@@ -4,7 +4,56 @@
  */
 
 const siteSearchIndex = [
-    // --- Academic Coursework & Papers ---
+    // --- Academic Catalog & Semester Timeline ---
+    {
+        title: "Academic Catalog & Degree Pathway",
+        category: "Coursework",
+        snippet: "Master catalog of CCV Liberal Studies courses, degree audit progress, and VTSU transfer roadmap.",
+        url: "courses/index.php",
+        keywords: "catalog classes courses degree pathway audit credits ccv vtsu history secondary education sped"
+    },
+    {
+        title: "Spring 2026 Semester Timeline",
+        category: "Coursework",
+        snippet: "Interactive milestone timeline for active Spring 2026 enrolled classes at CCV.",
+        url: "index.php#coursework",
+        keywords: "timeline semester current classes spring 2026 active milestone schedule"
+    },
+    {
+        title: "HIS-1211: U.S. History to 1877",
+        category: "Coursework",
+        snippet: "Early American history from pre-Columbian civilizations to Reconstruction. Foundation for History B.A.",
+        url: "courses/view.php?code=his1211",
+        keywords: "his1211 his-1211 history american revolution constitution civil war reconstruction ccv vtsu"
+    },
+    {
+        title: "EDU-1030: Intro to Special & Secondary Education",
+        category: "Coursework",
+        snippet: "Pedagogical foundations, IDEA, 504 plans, IEP accommodations, and Universal Design for Learning (UDL).",
+        url: "courses/view.php?code=edu1030",
+        keywords: "edu1030 edu-1030 education sped special education secondary teaching udl iep idea pedagogy"
+    },
+    {
+        title: "CIS-1151: Websites & Web Application Design",
+        category: "Coursework",
+        snippet: "Semantic HTML5, pure Vanilla CSS design systems, WCAG 2.1 accessibility, and JavaScript architectures.",
+        url: "courses/view.php?code=cis1151",
+        keywords: "cis1151 cis-1151 websites web applications css javascript accessibility html5 design system"
+    },
+    {
+        title: "ENG-1061: English Composition & Critical Inquiry",
+        category: "Coursework",
+        snippet: "Advanced academic writing, rhetorical analysis, argumentation, and empirical research methods.",
+        url: "courses/view.php?code=eng1061",
+        keywords: "eng1061 eng-1061 english composition writing essays rhetorical critical inquiry research"
+    },
+    {
+        title: "INT-1050: Dimensions of Self and Society",
+        category: "Coursework",
+        snippet: "Interdisciplinary seminar exploring identity, social structures, racial prejudice, and civic duty.",
+        url: "int1050/index.php",
+        keywords: "int1050 int-1050 dimensions self society course class syllabus vermont state colleges ccv"
+    },
     {
         title: "Week 1: 'So, What are You, Anyway?'",
         category: "Coursework",
@@ -18,27 +67,6 @@ const siteSearchIndex = [
         snippet: "Drop-in Markdown reading engine for any INT-1050 weekly response paper.",
         url: "int1050/reader.php?paper=week1.md",
         keywords: "reader markdown dynamic week1 week2 week3 int1050 viewer voice audio narration"
-    },
-    {
-        title: "INT-1050 Course Dashboard",
-        category: "Coursework",
-        snippet: "Dimensions of Self and Society curriculum roadmap, paper archives, and competencies.",
-        url: "int1050/index.php",
-        keywords: "int-1050 dimensions self society course class syllabus vermont state colleges"
-    },
-    {
-        title: "Week 2: Community & Civic Engagement",
-        category: "Coursework",
-        snippet: "Research paper on grassroots initiatives and democratic civic participation.",
-        url: "int1050/index.php#papers",
-        keywords: "civic engagement community grassroots politics sociology week 2"
-    },
-    {
-        title: "Week 3: Socioeconomic Factors in Urban Planning",
-        category: "Coursework",
-        snippet: "Analysis of socioeconomic equity in municipal transit, zoning, and infrastructure.",
-        url: "int1050/index.php#papers",
-        keywords: "urban planning socioeconomic zoning transit policy week 3"
     },
 
     // --- Projects ---

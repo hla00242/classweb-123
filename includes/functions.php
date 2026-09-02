@@ -1,8 +1,8 @@
 <?php
 /**
  * Global Helper Functions & Academic Coursework Scanner
- * Handles dynamic discovery of Markdown essays, metadata parsing, and utility helpers.
  */
+require_once __DIR__ . '/courses-data.php';
 
 /**
  * Scans a directory for .md files and extracts academic metadata.
