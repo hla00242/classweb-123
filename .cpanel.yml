@@ -5,7 +5,7 @@ deployment:
     # Note: Replace 'hla00242' with your exact cPanel account username if different.
     # If deploying to the root website: /home/hla00242/public_html/
     # If deploying to a subdirectory:   /home/hla00242/public_html/classweb/
-    - export DEPLOYPATH=/home/hla00242/public_html/
+    - export DEPLOYPATH=/home/hlaclass/public_html/
 
     # 2. Ensure target directory exists
     - /bin/mkdir -p $DEPLOYPATH
